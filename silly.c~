@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+typedef int (*functionPtr)();
+typedef int (*secondFunctionPtr)(char *);
+
+int sillyFunction() {
+  return 5;
+}
+
+int editFunction(char *ptr) {
+  ptr[4] = 69;
+}
+
+void callPrintf(int num) {
+  char *s = 
+}
+
+int main() {
+  char array[10] = { 0x55, 0x89, 0xe5, 0xb8, 0x05, 0x00, 0x00, 0x00, 0x5d, 0xc3 };
+  int x = ((functionPtr)array)();
+  char brray[14] = { 0x55, 0x89, 0xe5, 0x8b, 0x45, 0x08, 0x83, 0xc0, 0x04, 0xc6, 0x00, 0x45, 0x5d, 0xc3 }; 
+  ((secondFunctionPtr)brray)(array);
+  int y = ((functionPtr)array)();
+  printf("first=%d, second=%d\n", x, y);
+ 
+  /*  int (*functionPtr)();
+  functionPtr = &array;
+  printf("a=%d\n", functionPtr());
+
+  secondFunctionPtr = &brray;
+  secondFunctionPtr(array); */
+  
+
+  return 0;
+}
